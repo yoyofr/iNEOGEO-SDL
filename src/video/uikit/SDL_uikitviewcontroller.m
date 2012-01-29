@@ -32,10 +32,20 @@
 #include "SDL_uikitviewcontroller.h"
 #include "SDL_uikitvideo.h"
 
+#ifdef SDL_IOS_JOY_EXT
+#import "BTstack/BTDevice.h"
+#import "BTstack/btstack.h"
+#import "BTstack/run_loop.h"
+#import "BTstack/hci_cmds.h"
+static BTDevice *device;
+static uint16_t wiiMoteConHandle = 0;
+
+#endif
+
 @implementation SDL_uikitviewcontroller
 
 @synthesize window;
-#if SDL_ICADE
+#if SDL_IOS_JOY_EXT
 @synthesize control;
 #endif
 
@@ -50,13 +60,31 @@
     
     return self;
 }
-#if SDL_ICADE
+#if SDL_IOS_JOY_EXT
+
+
 - (void)viewWillAppear:(BOOL)animated {
+    //ICADE
     control = [[iCadeReaderView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:control];
     control.active = YES;
     control.delegate = self;
     [control release];    
+    //WIIMOTE
+    // create discovery controller
+	discoveryView = [[BTDiscoveryViewController alloc] init];
+	[discoveryView setDelegate:self];
+    [self.view addSubview:discoveryView.view];
+    discoveryView.view.hidden=TRUE;
+    // BTstack
+	BTstackManager * bt = [BTstackManager sharedInstance];
+	[bt setDelegate:self];
+	[bt addListener:self];
+	[bt addListener:discoveryView];
+    
+	BTstackError err = [bt activate];
+	if (err) NSLog(@"activate err 0x%02x!", err);
+	
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -64,8 +92,14 @@
     [control removeFromSuperview];
 }
 
-#endif
-#if SDL_ICADE
+
+
+/****************************************************/
+/****************************************************/
+/*        ICADE                                     */
+/****************************************************/
+/****************************************************/
+
 - (void)setState:(BOOL)state forButton:(iCadeState)button {
     switch (button) {
         case iCadeButtonA:
@@ -116,6 +150,91 @@
 - (void)buttonUp:(iCadeState)button {
     [self setState:NO forButton:button];    
 }
+
+/****************************************************/
+/****************************************************/
+/*        BTSTACK / WIIMOTE                         */
+/****************************************************/
+/****************************************************/
+
+-(void) activatedBTstackManager:(BTstackManager*) manager {
+	NSLog(@"activated!");
+	[[BTstackManager sharedInstance] startDiscovery];
+}
+
+-(void) btstackManager:(BTstackManager*)manager deviceInfo:(BTDevice*)newDevice {
+	NSLog(@"Device Info: addr %@ name %@ COD 0x%06x", [newDevice addressString], [newDevice name], [newDevice classOfDevice] ); 
+	if ([newDevice name] && [[newDevice name] caseInsensitiveCompare:@"Nintendo RVL-CNT-01"] == NSOrderedSame){
+		NSLog(@"WiiMote found with address %@", [newDevice addressString]);
+		device = newDevice;
+		[[BTstackManager sharedInstance] stopDiscovery];
+	}
+}
+
+-(void) discoveryStoppedBTstackManager:(BTstackManager*) manager {
+	NSLog(@"discoveryStopped!");
+	// connect to device
+	bt_send_cmd(&l2cap_create_channel, [device address], 0x13);
+}
+
+
+// direct access
+-(void) btstackManager:(BTstackManager*) manager
+  handlePacketWithType:(uint8_t) packet_type
+			forChannel:(uint16_t) channel
+			   andData:(uint8_t *)packet
+			   withLen:(uint16_t) size
+{
+	bd_addr_t event_addr;
+	
+	switch (packet_type) {
+			
+		case L2CAP_DATA_PACKET:
+			if (packet[0] == 0xa1 && packet[1] == 0x31){
+				//bt_data_cb(packet[4], packet[5], packet[6]);
+			}
+			break;
+			
+		case HCI_EVENT_PACKET:
+			
+			switch (packet[0]){
+					
+				case L2CAP_EVENT_CHANNEL_OPENED:
+					if (packet[2] == 0) {
+						// inform about new l2cap connection
+						bt_flip_addr(event_addr, &packet[3]);
+						uint16_t psm = READ_BT_16(packet, 11); 
+						uint16_t source_cid = READ_BT_16(packet, 13); 
+						wiiMoteConHandle = READ_BT_16(packet, 9);
+						NSLog(@"Channel successfully opened: handle 0x%02x, psm 0x%02x, source cid 0x%02x, dest cid 0x%02x",
+							  wiiMoteConHandle, psm, source_cid,  READ_BT_16(packet, 15));
+						if (psm == 0x13) {
+							// interupt channel openedn succesfully, now open control channel, too.
+							bt_send_cmd(&l2cap_create_channel, event_addr, 0x11);
+						} else {
+							// request acceleration data.. 
+							uint8_t setMode31[] = { 0x52, 0x12, 0x00, 0x31 };
+							bt_send_l2cap( source_cid, setMode31, sizeof(setMode31));
+							uint8_t setLEDs[] = { 0x52, 0x11, 0x10 };
+							bt_send_l2cap( source_cid, setLEDs, sizeof(setLEDs));
+							
+							// start demo
+							//[self startDemo];
+						}
+					}
+					break;
+					
+				default:
+					break;
+			}
+			break;
+			
+		default:
+			break;
+	}
+	
+}
+
 
 #endif
 

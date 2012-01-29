@@ -140,8 +140,8 @@
 /* enable iPhone keyboard support */
 #define SDL_IPHONE_KEYBOARD 1
 
-/* enable iCade support */
-#define SDL_ICADE 1
+/* enable iCade & BTStack/Wiimote support */
+#define SDL_IOS_JOY_EXT 1
 
 /* enable joystick subsystem */
 #define SDL_JOYSTICK_DISABLED 0

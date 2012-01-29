@@ -20,26 +20,32 @@
  */
 
 #import <UIKit/UIKit.h>
-#if SDL_ICADE
+
+#if SDL_IOS_JOY_EXT
 #import "iCadeReaderView.h"
+#import "BTstack/BTstackManager.h"
+#import "BTstack/BTDiscoveryViewController.h"
+@class BTstackManager;
+@class BTDiscoveryViewController;
 #endif
 
 #include "../SDL_sysvideo.h"
 
-#if SDL_ICADE
-@interface SDL_uikitviewcontroller : UIViewController<iCadeEventDelegate> {
+#if SDL_IOS_JOY_EXT
+@interface SDL_uikitviewcontroller : UIViewController<iCadeEventDelegate, BTstackManagerDelegate, BTstackManagerListener,BTDiscoveryDelegate> {
 #else
     @interface SDL_uikitviewcontroller : UIViewController {
 #endif
 @private
     SDL_Window *window;
-#if SDL_ICADE
+#if SDL_IOS_JOY_EXT
     iCadeReaderView *control;
+    BTDiscoveryViewController* discoveryView;
 #endif
 }
 
 @property (readwrite) SDL_Window *window;
-#if SDL_ICADE
+#if SDL_IOS_JOY_EXT
 @property (readwrite) iCadeReaderView *control;
 #endif
 

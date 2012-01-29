@@ -114,6 +114,25 @@
 		339E99A314CE1A8B000B2C79 /* iCadeReaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 339E99A014CE1A8B000B2C79 /* iCadeReaderView.h */; };
 		339E99A414CE1A8B000B2C79 /* iCadeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 339E99A114CE1A8B000B2C79 /* iCadeReaderView.m */; };
 		339E99A514CE1A8B000B2C79 /* iCadeState.h in Headers */ = {isa = PBXBuildFile; fileRef = 339E99A214CE1A8B000B2C79 /* iCadeState.h */; };
+		33BB80FC14D54A6F00EA4B32 /* BTDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80ED14D54A6F00EA4B32 /* BTDevice.h */; };
+		33BB80FD14D54A6F00EA4B32 /* BTDiscoveryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80EE14D54A6F00EA4B32 /* BTDiscoveryViewController.h */; };
+		33BB80FE14D54A6F00EA4B32 /* BTInquiryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80EF14D54A6F00EA4B32 /* BTInquiryViewController.h */; };
+		33BB80FF14D54A6F00EA4B32 /* btstack.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F014D54A6F00EA4B32 /* btstack.h */; };
+		33BB810014D54A6F00EA4B32 /* BTstackManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F114D54A6F00EA4B32 /* BTstackManager.h */; };
+		33BB810114D54A6F00EA4B32 /* hal_cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F214D54A6F00EA4B32 /* hal_cpu.h */; };
+		33BB810214D54A6F00EA4B32 /* hal_tick.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F314D54A6F00EA4B32 /* hal_tick.h */; };
+		33BB810314D54A6F00EA4B32 /* hal_uart_dma.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F414D54A6F00EA4B32 /* hal_uart_dma.h */; };
+		33BB810414D54A6F00EA4B32 /* hci_cmds.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F514D54A6F00EA4B32 /* hci_cmds.h */; };
+		33BB810514D54A6F00EA4B32 /* linked_list.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F614D54A6F00EA4B32 /* linked_list.h */; };
+		33BB810614D54A6F00EA4B32 /* memory_pool.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F714D54A6F00EA4B32 /* memory_pool.h */; };
+		33BB810714D54A6F00EA4B32 /* run_loop.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F814D54A6F00EA4B32 /* run_loop.h */; };
+		33BB810814D54A6F00EA4B32 /* sdp_util.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80F914D54A6F00EA4B32 /* sdp_util.h */; };
+		33BB810914D54A6F00EA4B32 /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80FA14D54A6F00EA4B32 /* utils.h */; };
+		33BB810A14D54A6F00EA4B32 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 33BB80FB14D54A6F00EA4B32 /* version.h */; };
+		33BB810E14D5504700EA4B32 /* BTInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BB810D14D5504600EA4B32 /* BTInquiryViewController.m */; };
+		33BB811014D5504F00EA4B32 /* BTDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BB810F14D5504E00EA4B32 /* BTDiscoveryViewController.m */; };
+		33BB811214D5505400EA4B32 /* BTstackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BB811114D5505300EA4B32 /* BTstackManager.m */; };
+		33BB811414D550A200EA4B32 /* BTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BB811314D550A100EA4B32 /* BTDevice.m */; };
 		56EA86FB13E9EC2B002E47EB /* SDL_coreaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 56EA86F913E9EC2B002E47EB /* SDL_coreaudio.c */; };
 		56EA86FC13E9EC2B002E47EB /* SDL_coreaudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EA86FA13E9EC2B002E47EB /* SDL_coreaudio.h */; };
 		56ED04E1118A8EE200A56AA6 /* SDL_power.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ED04E0118A8EE200A56AA6 /* SDL_power.c */; };
@@ -367,6 +386,25 @@
 		339E99A014CE1A8B000B2C79 /* iCadeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeReaderView.h; sourceTree = "<group>"; };
 		339E99A114CE1A8B000B2C79 /* iCadeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCadeReaderView.m; sourceTree = "<group>"; };
 		339E99A214CE1A8B000B2C79 /* iCadeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeState.h; sourceTree = "<group>"; };
+		33BB80ED14D54A6F00EA4B32 /* BTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDevice.h; sourceTree = "<group>"; };
+		33BB80EE14D54A6F00EA4B32 /* BTDiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDiscoveryViewController.h; sourceTree = "<group>"; };
+		33BB80EF14D54A6F00EA4B32 /* BTInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTInquiryViewController.h; sourceTree = "<group>"; };
+		33BB80F014D54A6F00EA4B32 /* btstack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btstack.h; sourceTree = "<group>"; };
+		33BB80F114D54A6F00EA4B32 /* BTstackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTstackManager.h; sourceTree = "<group>"; };
+		33BB80F214D54A6F00EA4B32 /* hal_cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hal_cpu.h; sourceTree = "<group>"; };
+		33BB80F314D54A6F00EA4B32 /* hal_tick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hal_tick.h; sourceTree = "<group>"; };
+		33BB80F414D54A6F00EA4B32 /* hal_uart_dma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hal_uart_dma.h; sourceTree = "<group>"; };
+		33BB80F514D54A6F00EA4B32 /* hci_cmds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hci_cmds.h; sourceTree = "<group>"; };
+		33BB80F614D54A6F00EA4B32 /* linked_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linked_list.h; sourceTree = "<group>"; };
+		33BB80F714D54A6F00EA4B32 /* memory_pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory_pool.h; sourceTree = "<group>"; };
+		33BB80F814D54A6F00EA4B32 /* run_loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = run_loop.h; sourceTree = "<group>"; };
+		33BB80F914D54A6F00EA4B32 /* sdp_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdp_util.h; sourceTree = "<group>"; };
+		33BB80FA14D54A6F00EA4B32 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		33BB80FB14D54A6F00EA4B32 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		33BB810D14D5504600EA4B32 /* BTInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTInquiryViewController.m; sourceTree = "<group>"; };
+		33BB810F14D5504E00EA4B32 /* BTDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDiscoveryViewController.m; sourceTree = "<group>"; };
+		33BB811114D5505300EA4B32 /* BTstackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTstackManager.m; sourceTree = "<group>"; };
+		33BB811314D550A100EA4B32 /* BTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDevice.m; sourceTree = "<group>"; };
 		56EA86F913E9EC2B002E47EB /* SDL_coreaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SDL_coreaudio.c; path = coreaudio/SDL_coreaudio.c; sourceTree = "<group>"; };
 		56EA86FA13E9EC2B002E47EB /* SDL_coreaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_coreaudio.h; path = coreaudio/SDL_coreaudio.h; sourceTree = "<group>"; };
 		56ED04E0118A8EE200A56AA6 /* SDL_power.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SDL_power.c; path = ../../src/power/SDL_power.c; sourceTree = SOURCE_ROOT; };
@@ -786,6 +824,32 @@
 			path = iCade;
 			sourceTree = "<group>";
 		};
+		33BB80E314D549ED00EA4B32 /* BTstack */ = {
+			isa = PBXGroup;
+			children = (
+				33BB811314D550A100EA4B32 /* BTDevice.m */,
+				33BB811114D5505300EA4B32 /* BTstackManager.m */,
+				33BB810F14D5504E00EA4B32 /* BTDiscoveryViewController.m */,
+				33BB810D14D5504600EA4B32 /* BTInquiryViewController.m */,
+				33BB80ED14D54A6F00EA4B32 /* BTDevice.h */,
+				33BB80EE14D54A6F00EA4B32 /* BTDiscoveryViewController.h */,
+				33BB80EF14D54A6F00EA4B32 /* BTInquiryViewController.h */,
+				33BB80F014D54A6F00EA4B32 /* btstack.h */,
+				33BB80F114D54A6F00EA4B32 /* BTstackManager.h */,
+				33BB80F214D54A6F00EA4B32 /* hal_cpu.h */,
+				33BB80F314D54A6F00EA4B32 /* hal_tick.h */,
+				33BB80F414D54A6F00EA4B32 /* hal_uart_dma.h */,
+				33BB80F514D54A6F00EA4B32 /* hci_cmds.h */,
+				33BB80F614D54A6F00EA4B32 /* linked_list.h */,
+				33BB80F714D54A6F00EA4B32 /* memory_pool.h */,
+				33BB80F814D54A6F00EA4B32 /* run_loop.h */,
+				33BB80F914D54A6F00EA4B32 /* sdp_util.h */,
+				33BB80FA14D54A6F00EA4B32 /* utils.h */,
+				33BB80FB14D54A6F00EA4B32 /* version.h */,
+			);
+			path = BTstack;
+			sourceTree = "<group>";
+		};
 		56EA86F813E9EBF9002E47EB /* coreaudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +925,7 @@
 				FD689F110E26E5D900F90B21 /* SDL_uikitvideo.m */,
 				FDC261780E3A3FC8001C4554 /* keyinfotable.h */,
 				FD24846B0E5655AE0021E198 /* SDL_uikitkeyboard.h */,
+				33BB80E314D549ED00EA4B32 /* BTstack */,
 				339E999F14CE1A89000B2C79 /* iCade */,
 				FD0BBFEF0E3933DD00D833B1 /* SDL_uikitview.h */,
 				FD689F130E26E5D900F90B21 /* SDL_uikitview.m */,
@@ -1252,6 +1317,21 @@
 				93CB792313FC5E5200BD3E05 /* SDL_uikitviewcontroller.h in Headers */,
 				339E99A314CE1A8B000B2C79 /* iCadeReaderView.h in Headers */,
 				339E99A514CE1A8B000B2C79 /* iCadeState.h in Headers */,
+				33BB80FC14D54A6F00EA4B32 /* BTDevice.h in Headers */,
+				33BB80FD14D54A6F00EA4B32 /* BTDiscoveryViewController.h in Headers */,
+				33BB80FE14D54A6F00EA4B32 /* BTInquiryViewController.h in Headers */,
+				33BB80FF14D54A6F00EA4B32 /* btstack.h in Headers */,
+				33BB810014D54A6F00EA4B32 /* BTstackManager.h in Headers */,
+				33BB810114D54A6F00EA4B32 /* hal_cpu.h in Headers */,
+				33BB810214D54A6F00EA4B32 /* hal_tick.h in Headers */,
+				33BB810314D54A6F00EA4B32 /* hal_uart_dma.h in Headers */,
+				33BB810414D54A6F00EA4B32 /* hci_cmds.h in Headers */,
+				33BB810514D54A6F00EA4B32 /* linked_list.h in Headers */,
+				33BB810614D54A6F00EA4B32 /* memory_pool.h in Headers */,
+				33BB810714D54A6F00EA4B32 /* run_loop.h in Headers */,
+				33BB810814D54A6F00EA4B32 /* sdp_util.h in Headers */,
+				33BB810914D54A6F00EA4B32 /* utils.h in Headers */,
+				33BB810A14D54A6F00EA4B32 /* version.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1469,6 +1549,10 @@
 				56EA86FB13E9EC2B002E47EB /* SDL_coreaudio.c in Sources */,
 				93CB792613FC5F5300BD3E05 /* SDL_uikitviewcontroller.m in Sources */,
 				339E99A414CE1A8B000B2C79 /* iCadeReaderView.m in Sources */,
+				33BB810E14D5504700EA4B32 /* BTInquiryViewController.m in Sources */,
+				33BB811014D5504F00EA4B32 /* BTDiscoveryViewController.m in Sources */,
+				33BB811214D5505400EA4B32 /* BTstackManager.m in Sources */,
+				33BB811414D550A200EA4B32 /* BTDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
