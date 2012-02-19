@@ -32,6 +32,8 @@
 #import "SDL_events_c.h"
 #import "jumphack.h"
 
+#import "TestFlight.h"
+
 #ifdef main
 #undef main
 #endif
@@ -113,6 +115,8 @@ static void SDL_IdleTimerDisabledChanged(const char *name, const char *oldValue,
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"345ceb579e831ce0140eefaed9c682cd_NjM2ODIyMDEyLTAyLTE4IDAzOjU2OjI2LjgyNjkyNA"];
+    
     /* Set working directory to resource path */
     [[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
 

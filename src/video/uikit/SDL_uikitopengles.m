@@ -126,8 +126,11 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
         [view->viewcontroller retain];
     }
 
-    /* add the view to our window */
+    /* add the view to our window */    
     [uiwindow addSubview: view ];
+    /*uiwindow.rootViewController = view->viewcontroller;
+    [uiwindow addSubview:view->viewcontroller.view];
+    [uiwindow makeKeyAndVisible];*/
 
     if ( UIKit_GL_MakeCurrent(_this, window, view) < 0 ) {
         UIKit_GL_DeleteContext(_this, view);

@@ -79,9 +79,11 @@ static uint16_t wiiMoteConHandle = 0;
     discoveryView.view.hidden=TRUE;
     // BTstack
 	BTstackManager * bt = [BTstackManager sharedInstance];
+    if (bt) {
 	[bt setDelegate:self];
 	[bt addListener:self];
 	[bt addListener:discoveryView];
+    }
     
 /*	BTstackError err = [bt activate];
 	if (err) NSLog(@"activate err 0x%02x!", err);*/
@@ -162,13 +164,15 @@ void startWiimoteDetection(void) {
     NSLog(@"Looking for wiimote");
     
     BTstackManager * bt = [BTstackManager sharedInstance];
-    BTstackError err = [bt activate];
+    if (bt) {BTstackError err = [bt activate];
 	if (err) NSLog(@"activate err 0x%02x!", err);
+    }
 }
 
 void stopWiimoteDetection(void) {
     NSLog(@"Stop looking for wiimote");
-	[[BTstackManager sharedInstance] stopDiscovery];
+    BTstackManager * bt = [BTstackManager sharedInstance];
+	if (bt) [bt stopDiscovery];
 }
 
 

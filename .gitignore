@@ -1,0 +1,6 @@
+# ignore individual user's xcode data
+*xcuserdata*
+# Mac OSX files
+*.DS_Store*
+# hg repo
+.hg

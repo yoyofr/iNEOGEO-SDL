@@ -53,7 +53,20 @@ static void packet_handler(uint8_t packet_type, uint16_t channel, uint8_t *packe
 @synthesize listeners;
 @synthesize discoveredDevices;
 
+int get_int_value(void *a) {
+    int i;
+    i=(int)a*(int)a;
+    return i;
+}
+
 -(BTstackManager *) init {
+    //dirty hack to lure compiler
+    //exit if btstack not available
+    void *toto=get_int_value(run_loop_init);
+    int i=(rand())+1;
+    i*=(int)toto;    
+    if (i==0) return nil;
+    //
 	self = [super init];
 	if (!self) return self;
 	
@@ -68,8 +81,8 @@ static void packet_handler(uint8_t packet_type, uint16_t channel, uint8_t *packe
 	_delegate = nil;
 	[self setListeners:[[NSMutableArray alloc] init]];
 	
-	// Use Cocoa run loop
-	run_loop_init(RUN_LOOP_COCOA);
+	// Use Cocoa run loop	
+    run_loop_init(RUN_LOOP_COCOA);
 	
 	// our packet handler
 	bt_register_packet_handler(packet_handler);
