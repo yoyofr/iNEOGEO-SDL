@@ -82,12 +82,13 @@
 
 - (CGPoint)touchLocation:(UITouch *)touch
 {
-    CGPoint point = [touch locationInView: self];
-    CGRect frame = [self frame];
-
-    frame = CGRectApplyAffineTransform(frame, [self transform]);
-    point.x /= frame.size.width;
-    point.y /= frame.size.height;
+    CGPoint point = [touch locationInView: touch.view];
+    CGRect frame = touch.view.frame;
+        
+    frame = CGRectApplyAffineTransform(frame, [touch.view transform]);
+    point.x = point.x/(frame.size.width);
+    point.y = point.y/(frame.size.height);
+    
     return point;
 }
 
@@ -97,19 +98,19 @@
     UITouch *touch = (UITouch*)[enumerator nextObject];
 
     if (touch) {
-        CGPoint locationInView = [touch locationInView: self];
+        CGPoint locationInView = [touch locationInView: touch.view];
 
         /* send moved event */
         SDL_SendMouseMotion(NULL, 0, locationInView.x, locationInView.y);
 
         /* send mouse down event */
         SDL_SendMouseButton(NULL, SDL_PRESSED, SDL_BUTTON_LEFT);
+        
     }
 
 #ifdef FIXED_MULTITOUCH
     while(touch) {
         CGPoint locationInView = [self touchLocation:touch];
-
 #ifdef IPHONE_TOUCH_EFFICIENT_DANGEROUS
         //FIXME: TODO: Using touch as the fingerId is potentially dangerous
         //It is also much more efficient than storing the UITouch pointer
